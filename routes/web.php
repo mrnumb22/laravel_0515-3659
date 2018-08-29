@@ -76,3 +76,7 @@ Route::get('/crushes/{id}/show', 'CrushesController@show')->name('crushes.id.sho
 Route::get('/crushes/{id}/addqualities', 'QualitiesController@create')->name('crushes.id.addqualities');
 
 Route::post('/crushes/{id}/store', 'QualitiesController@store')->name('crushes.id.store');
+
+// DESTROYING QUALITIES
+
+Route::get('/crushes/{id}/destroy', 'QualitiesController@destroy')->name('crushes.id.destroy');

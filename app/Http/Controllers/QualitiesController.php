@@ -91,6 +91,9 @@ class QualitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $quality = Quality::find($id);
+        $quality -> delete();
+
+        return redirect()->back();
     }
 }

@@ -33,7 +33,9 @@ class CrushesController extends Controller
         $crush = new Crush();
         return view('crushes.create',array( 'crush'         =>  $crush,
                                             'action'        =>  route('crushes.store'),
-                                            'submit_text'   =>  "Create Crush"));
+                                            'submit_text'   =>  "🙌 ADD CRUSH 👌",
+                                            'title'         =>  "NEW CRUSH",
+                                            'tab_title'     => "NEW CRUSH || CRUD @ LARAVEL"));
     }
 
     /**
@@ -62,10 +64,9 @@ class CrushesController extends Controller
     public function show($id)
     {
         $crush = Crush::find($id);
-        $quality = Quality::all();
         
         return view('crushes.show', array('crush'       => $crush,
-                                          'qualities'   => $quality));
+                                          ));
     }
 
     /**
@@ -81,7 +82,9 @@ class CrushesController extends Controller
 
         return view('crushes.create', array('crush'      => $crush,
                                             'action'     => route('crushes.id.update', array('id'=>$crush->id)),
-                                            'submit_text'=>"Update Crush")
+                                            'submit_text'=>"😘 UPDATE ME SENPAI 😏",
+                                            'title'         =>  "EDIT MY CRUSH",
+                                            'tab_title'     => "EDIT MY CRUSH || CRUD @ LARAVEL")
                     );
     }
 

@@ -27,17 +27,35 @@
             text-align: center;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            padding: 1px;
         }
 
+        .top p{
+            text-align: left;
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            padding-left: 50px;
+            width: 60%;
+            margin: 0;
+            float: left; 
+        }
+        
+
         #button1{
-            margin-top: 25px;
             height: 50px;
-            width: 280px;
+            width: 350px;
             border: 0;
             font-family: Roboto Condensed;
             font-size: 25px;
-            color: black;
+            color: white;
             cursor: pointer;
+            float: right;
+            margin-top: 23px;
+            margin-right: 50px;
+            border-radius: 5px;
+            font-weight: bold;
+            background-color: red;
         }
 
         #tableList{
@@ -51,6 +69,18 @@
             background-color: grey;
             font-weight: bold;
             color: white;
+            text-transform: uppercase;
+        }
+
+        #tableList tbody tr td{
+            font-size: 22px;
+        }
+
+        #tableList tbody tr td a{
+            font-size: 22px;
+            text-transform: none;
+            text-decoration: none;
+            color: black;
         }
 
         </style>
@@ -60,8 +90,10 @@
         <div class="wrapper">
 
             <div class="top">
-            
-                <button type="button" id="button1" onClick="window.location.href='{{ route('crushes.create') }}'"> ADD NEW CRUSHES</button>
+
+                <p> 💑👀💖 MY CRUSHES 💋🤩💦</p> 
+                
+                <button type="button" id="button1" onClick="window.location.href='{{ route('crushes.create') }}'"> 👫 ADD NEW CRUSH 🤞</button> 
 
             </div>
             <div class="content">
@@ -82,11 +114,13 @@
                             <tr>
                                 <td>{{$crush->first_name}}</td>
                                 <td>{{$crush->last_name}}</td>
-                            <td><a href="{{$crush->fb_profile_link}}" target="_blank">{{$crush->fb_profile_link}}</a></td>
+                                <td><a href="{{$crush->fb_profile_link}}" target="_blank">{{$crush->fb_profile_link}}</a></td>
                                 <td>{{$crush->contact_number}}</td>
-                                <td style="text-align: center;"><a href="{{ route('crushes.id.edit', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;"> EDIT </a> | 
-                                <a href="{{ route('crushes.id.destroy', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;"> DELETE </a> | 
-                                <a href="{{ route('crushes.id.show', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;"> SHOW </a></td>
+                                <td style="text-align: center;">
+                                    <a href="{{ route('crushes.id.show', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;" title="SHOW"> 💑 </a> &nbsp; |  &nbsp;
+                                    <a href="{{ route('crushes.id.edit', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;" title="EDIT"> 🌟 </a> &nbsp; |  &nbsp;
+                                    <a href="{{ route('crushes.id.destroy', array('id'=>$crush->id))}}" style="text-decoration: none; font-weight: bold;" title="DELETE"> ❌ </a>
+                                </td>
                             </tr>
                         @endforeach
 
